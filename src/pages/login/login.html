@@ -1,0 +1,56 @@
+<ion-header >
+  <ion-nav>
+    <ion-title ><div id="rest_name_login_id" >XYZ Restaurant</div></ion-title>
+  </ion-nav>
+  </ion-header>
+<ion-content class="login-content" padding>
+  <ion-row class="logo-row">
+    <ion-col></ion-col>
+    <ion-col width-67>
+      
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+  <div id="loginfrom_number_id">
+  <ion-card-content>
+  <div class="login-box">
+    <form [formGroup]= "loginbox" (ngSubmit)="dologin()" >
+        <ion-row>
+            <ion-col>
+              <ion-list inset>
+                <ion-item>
+                    <ion-select  multiple="true"cancelText="Nah" okText="Okay!">
+                      <ion-option  value="+91" selected="true">+91</ion-option>
+                    </ion-select>
+                    <ion-input full maxlength="10" name="number" formControlName="number"  placeholder="Enter your Mobile Number with country code"> </ion-input>  
+                  </ion-item>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <!-- disable button when i=open page -->
+              <button ion-button full [disabled]="!loginbox.valid" class="submit-btn"  type="submit">Login</button>
+            </ion-col>
+          </ion-row>          
+          </form>
+   </div>
+  </ion-card-content>
+</div>
+<div id="social_accnt_text-Id">
+  <ion-label>--OR--</ion-label> 
+</div>
+<div id="social_accnt_id">
+    <ion-card-content>
+    
+     
+        <ion-row>
+              <ion-col>
+                  <button ion-button class="submit-btn" full type="submit"(click)="trueCaller($event)" > <ion-icon name="call"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Login Via TrueCaller</button>
+                  
+                </ion-col>
+            </ion-row>          
+    </ion-card-content>
+  </div>
+
+</ion-content>

@@ -1,0 +1,136 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle  >
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Select your Restaurant</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  
+    <div padding>
+        <ion-segment [(ngModel)]="location">
+       
+          <ion-segment-button value="homeDelivery">
+           Home Delivery
+          </ion-segment-button>
+          <ion-segment-button value="pickUp">
+              PickUp
+            </ion-segment-button>
+        </ion-segment>
+      </div>
+      
+      <div [ngSwitch]="location">
+        <ion-list *ngSwitchCase="'homeDelivery'">
+          <ion-item >
+              <div id="detect_location_id">
+                  <button ion-button full (click)="loadMapMethod()" > 
+                    <ion-icon ios="ios-locate" md="md-locate">&nbsp;&nbsp;
+                    </ion-icon>
+                    Detect your Location
+                  </button>
+                </div>
+                <!-- <button ion-button full (click)="loadMap()" > 
+                  <ion-icon ios="ios-locate" md="md-locate">&nbsp;&nbsp;
+                  </ion-icon>
+                  Detect your Location
+                </button> -->
+          </ion-item>
+          </ion-list>
+         
+            <ion-list *ngSwitchCase="'homeDelivery'">
+              <ion-item>
+                <ion-label floating >
+                  Enter your Address with zipcode
+                </ion-label>
+                <ion-input name="myAddress" [(ngModel)]="myAddress"></ion-input>
+              </ion-item>
+         
+            </ion-list>
+            <ion-list *ngSwitchCase="'homeDelivery'">
+              <ion-item>
+                <div id="addressId">
+                  <ion-card-content>
+                      <h3> {{myAddress}}</h3>
+                      
+                    </ion-card-content>
+                  </div>    
+              </ion-item>
+            </ion-list>   
+            
+          </div>
+          
+      
+        <div [ngSwitch]="location">
+        <ion-list *ngSwitchCase="'pickUp'">
+           
+                <ion-item>
+                  <ion-label>Select City</ion-label>
+                  <ion-select [(ngModel)]="city" (ionChange)="clickOption()" name="city" multiple="false"  cancelText="Nah" okText="Okay!" >
+                    <ion-option value="Ahmedabad">Ahmedabad</ion-option>
+                    <ion-option value="Vadodara">Vadodara</ion-option>
+                    <ion-option value="Surat">Surat</ion-option>
+                    
+                  </ion-select>
+                </ion-item>
+              
+          
+        </ion-list>
+        <ion-list *ngSwitchCase="'pickUp'">
+            <ion-item *ngIf="restaurant_Con">
+              <ion-label>Select Restaurant</ion-label>
+              <ion-select [(ngModel)]="restaurant" name="restaurant" multiple="false"  cancelText="Nah" okText="Okay!" >
+                <ion-option value="A">A</ion-option>
+                <ion-option value="B">B</ion-option>
+                <ion-option value="C">C</ion-option>
+            
+              </ion-select>
+            </ion-item>
+          </ion-list>
+          <ion-list *ngSwitchCase="'pickUp'">
+            <ion-item>
+              <div id="addressId">
+                <ion-card-content>
+                    <h3> {{city}} {{restaurant}}</h3>
+                    
+                  </ion-card-content>
+                </div>    
+            </ion-item>
+          </ion-list>
+      </div>
+
+ 
+  <!-- <ion-card-content>
+   <div id="select_city_id">
+            <ion-select  name="city" multiple="false" placeholder="Select City" cancelText="Nah" okText="Okay!">
+              <ion-option value="ahmedabad">Ahmedabad</ion-option>
+              <ion-option value="vadoadara">Vadodara</ion-option>
+              <ion-option value="surat">Surat</ion-option>
+            </ion-select>
+          </div>
+        </ion-card-content>
+      <ion-card-content> 
+     <div id="select_rest_id">
+       <ion-select name="restaurant" multiple="false" placeholder="Select Restaurant" cancelText="Nah" okText="Okay!">
+         <ion-option value="A">A,Ahmedabad</ion-option>
+         <ion-option value="B">B,Ahmedabad</ion-option>
+      </ion-select>
+     </div>
+    </ion-card-content> -->
+   
+     
+
+
+<ion-card-content>
+  <button ion-button block round color="danger" (click)="menuClick($event)">Proceed to Menu</button>
+</ion-card-content>
+
+<ion-card-content>
+    <button ion-button block round color="danger" (click)="dailyOffer()">Every Day Value OFfer</button>
+  </ion-card-content>
+
+
+       
+</ion-content>
+<ion-nav [root]="rootPage" #content ></ion-nav>

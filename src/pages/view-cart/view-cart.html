@@ -1,0 +1,86 @@
+<!--
+  Generated template for the ViewCartPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <button ion-button clear (click)="backToMain()">
+    <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon></button>
+  
+
+</ion-header>
+
+
+<ion-content padding>
+<ion-card>
+<ion-grid>
+  <ion-row>
+    <ion-col col-4>
+        <ion-list>
+            <ion-item>
+             
+              
+            <h3>Item</h3>
+              <h5>American-Heat</h5>
+              <h6>
+                  Extra olive oil <br>
+                  Mozzarella cheese<br>
+                  Thinly-sliced meat<br>
+                  {{pizza_size}}<br>
+                  {{crust}}<br>
+                  Mushrooms<br>
+                  Tomatoes<br>
+               </h6>
+              
+            </ion-item>
+      
+            <!-- when user click down arrow then it will fire open_arrow_button method if condition
+            if buttonclicked is true then it will show contents else it hide contents -->
+                   </ion-list>
+        
+    </ion-col>
+    <ion-col col-4>
+        <ion-item >
+            <h3>Quantity</h3>
+                  {{currentNumber}}
+                
+              </ion-item>
+    </ion-col>
+
+    <ion-col col-4>
+        <ion-item >
+            <h3>Price</h3>
+                  {{currentPrice}} Rs.
+                
+              </ion-item>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-card>
+
+<h2>Net Price: {{currentPrice}} Rs.</h2>
+
+<ion-row>
+  
+
+<ion-col col-6>
+<button ion-button>Have a coupon?</button>
+
+  </ion-col>
+  <ion-col col-6>
+    <div id="coupon_card">
+    <ion-item>
+    <ion-label floating>Enter Coupon Code</ion-label>
+      <ion-input  type="text" ></ion-input>
+    </ion-item>
+  </div>
+  </ion-col>
+  
+</ion-row> 
+<h2>Discount: 50$</h2>
+
+<h2>Grand Total: {{total_price}} Rs.</h2>
+<button ion-button block color="danger" (click)="paymnetMethod()">Place your Order</button>
+</ion-content>

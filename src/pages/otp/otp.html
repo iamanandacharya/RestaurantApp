@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button clear>
+     
+      <ion-icon ios="ios-arrow-back"  (click)="onBack($event)"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+<ion-content  padding>
+    <ion-row class="logo-row">
+      <ion-col></ion-col>
+      <ion-col width-67>
+        
+      </ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+    <div id="otp_card_id">
+    <ion-card-content>
+    <div class="login-box">
+      <form [formGroup]="otpbox" (ngSubmit)="doOtp()">
+          <ion-row>
+              <ion-col>
+                <ion-list inset>
+                  <ion-item>
+
+                    <ion-input name="otp_number"type="number" maxlength="4" formControlName="otp_number" placeholder="Enter Your OTP"></ion-input>
+                  </ion-item>
+                </ion-list>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                  <button ion-button [disabled]="!otpbox.valid" class="submit-btn"full type="submit">Type OTP</button><br>
+              </ion-col>
+            </ion-row>      
+          </form>    
+     </div>
+      <br>
+    </ion-card-content>
+  </div>
+
+  <div id="OtpById">
+    <ion-card-content>
+            <div padding>
+        <ion-segment [(ngModel)]="OTP" >
+          <ion-segment-button value="Resend OTP" >
+           Home Delivery
+          </ion-segment-button>
+        </ion-segment>
+      </div>
+
+      
+      <div [ngSwitch]="OTP"  >
+        <ion-grid>
+          <ion-row>
+            <ion-col col-6>
+              <ion-list *ngSwitchCase="'byText'" >
+               
+                <button ion-button color="danger" class="submit-btn"  (click)="resendOtpByText()" full type="submit">By Text</button><br>
+                
+          
+                </ion-list>
+              
+            </ion-col>
+            <ion-col col-6>
+              <ion-list *ngSwitchCase="'byText'">
+                
+        <button ion-button color="danger" class="submit-btn" (click)="resendOtpByVoice()" full type="submit">By Voice</button><br>
+        
+               
+              </ion-list>
+          
+            </ion-col>
+          </ion-row>
+
+        </ion-grid>
+         
+            
+          </div>
+    </ion-card-content>
+  </div>
+
+  
+    </ion-content>
