@@ -54,7 +54,7 @@ export class MyApp {
   }
   showAdmobBannerAds(){
     const bannerConfig:AdMobFreeBannerConfig={
-      id:'ca-app-pub-6883187264507414/9946685866',
+      id:'',
       isTesting:false,
       autoShow:true
     };
@@ -69,7 +69,7 @@ export class MyApp {
 
   // showIntertitialAds(){
   //   const bannerConfig : AdMobFreeBannerConfig={
-  //     id:'ca-app-pub-6883187264507414/5980177234',
+  //     id:'',
   //     isTesting:false,
   //     autoShow:true
   //   };
